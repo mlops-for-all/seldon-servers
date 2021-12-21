@@ -1,0 +1,4 @@
+#!/usr/bin/env bash -e
+
+echo "---> Creating environment with pip ..."
+/usr/bin/env python3 ./pip_env_create.py

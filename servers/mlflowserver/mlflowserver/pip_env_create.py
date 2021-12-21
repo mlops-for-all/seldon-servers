@@ -151,9 +151,7 @@ def install_base_reqs() -> None:
     """
     log.info("Install additional package from requirements.txt")
     cmd = (
-        "pip install"
-        " --trusted-host devpi.makinarocks.ai"
-        " --extra-index-url http://devpi.makinarocks.ai/root/dev/+simple/"
+        "pip3 install"
         f" -r {BASE_REQS_PATH}"
     )
     os.system(cmd)

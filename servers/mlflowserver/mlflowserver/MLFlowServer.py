@@ -141,7 +141,6 @@ class MLFlowServer(SeldonComponent):
         return []
 
     def load(self) -> None:
-        # pylint: disable=attribute-defined-outside-init
         logger.info(
             "model_uri=%s : load() : Load model from '%s'",
             self.model_uri,
@@ -258,7 +257,7 @@ class MLFlowServer(SeldonComponent):
         reward: float,
         truth: Union[np.ndarray, str, bytes],
         routing: Union[int, None],
-    ) -> Union[np.ndarray, List, Dict, str, bytes, None, SeldonResponse]:  # type: ignore
+    ) -> Union[np.ndarray, List, Dict, str, bytes, None, SeldonResponse]:
         logger.info(
             "model_uri=%s : send_feedback(features=%s, feature_names=%s, reward=%s, truth=%s, routing=%s)",
             self.model_uri,
@@ -274,7 +273,7 @@ class MLFlowServer(SeldonComponent):
             names=feature_names,
             predict_method="predict",
         )
-        predicted = predicted.ravel()  # pylint: disable=no-member
+        predicted = predicted.ravel()
 
         logger.info(
             "model_uri=%s : send_feedback() : predicted=%s",

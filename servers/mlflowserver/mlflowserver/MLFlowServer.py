@@ -343,11 +343,6 @@ class MLFlowServer(SeldonComponent):
 
         model_meta = self._model.metadata
         meta = {
-            "name": model_meta.artifact_path,
-            "versions": [
-                f"run_id: {model_meta.run_id}",
-                f"created_at: {model_meta.utc_time_created}",
-            ],
             "platform": "seldon",
             "inputs": [
                 {

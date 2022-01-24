@@ -13,7 +13,6 @@ COPY servers/mlflowserver/mlflowserver/image_metadata.json /app/image_metadata.j
 COPY servers/mlflowserver/mlflowserver/MLFlowServer.py /app/MLFlowServer.py
 COPY servers/mlflowserver/mlflowserver/pip_env_create.py /app/pip_env_create.py
 COPY servers/mlflowserver/mlflowserver/requirements.txt /app/requirements.txt
-COPY servers/mlflowserver/mlflowserver/serving_utils.py /app/serving_utils.py
 RUN chmod +x /app/before-run
 RUN chmod +x /app/pip_env_create.py
 RUN chmod +r /app/MLFlowServer.py

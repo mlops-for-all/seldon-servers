@@ -1,6 +1,6 @@
 import logging
 import os
-from typing import Dict, List, Union
+from typing import Dict, List, Union, Iterable
 
 import numpy as np
 import pandas as pd
@@ -65,7 +65,7 @@ class MLFlowServer(SeldonComponent):
             )
             return {}
 
-		def class_names(self) -> Iterable[str]:
+    def class_names(self) -> Iterable[str]:
         output_schema = self._model.metadata.get_output_schema()
         if output_schema is not None:
             columns = [schema["name"] for schema in output_schema.to_dict()]

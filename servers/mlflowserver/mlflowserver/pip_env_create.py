@@ -1,19 +1,3 @@
-#
-#  MAKINAROCKS CONFIDENTIAL
-#  ________________________
-#
-#  [2017] - [2021] MakinaRocks Co., Ltd.
-#  All Rights Reserved.
-#
-#  NOTICE:  All information contained herein is, and remains
-#  the property of MakinaRocks Co., Ltd. and its suppliers, if any.
-#  The intellectual and technical concepts contained herein are
-#  proprietary to MakinaRocks Co., Ltd. and its suppliers and may be
-#  covered by U.S. and Foreign Patents, patents in process, and
-#  are protected by trade secret or copyright law. Dissemination
-#  of this information or reproduction of this material is
-#  strictly forbidden unless prior written permission is obtained
-#  from MakinaRocks Co., Ltd.
 import argparse
 import json
 import logging
@@ -48,9 +32,7 @@ BASE_REQS_PATH = os.path.join(
 
 def setup_env(model_folder: str) -> None:
     """Sets up a pip environment.
-
     This methods creates the pip environment described by the `MLmodel` file.
-
     Parameters
     --------
     model_folder : str
@@ -69,12 +51,10 @@ def setup_env(model_folder: str) -> None:
 
 def read_mlmodel(model_folder: str) -> Any:
     """Reads an MLmodel file.
-
     Parameters
     ---------
     model_folder : str
         Folder where the MLmodel files are stored.
-
     Returns
     --------
     obj
@@ -87,12 +67,10 @@ def read_mlmodel(model_folder: str) -> Any:
 
 def _read_yaml(file_path: str) -> Any:
     """Reads a YAML file.
-
     Parameters
     ---------
     file_path
         Path to the YAML file.
-
     Returns
     -------
     dict
@@ -105,12 +83,10 @@ def _read_yaml(file_path: str) -> Any:
 def copy_env(env_file_path: str) -> str:
     """Copy conda.yaml to temp dir
     to prevent the case where the existing file is on Read-only file system.
-
     Parameters
     ----------
     env_file_path : str
         env file path to copy.
-
     Returns
     -------
     str
@@ -125,7 +101,6 @@ def copy_env(env_file_path: str) -> str:
 
 def copy_pip(new_env_path: str) -> None:
     """Copy pip packages from conda.yaml to requirements.txt
-
     Parameters
     ----------
     new_env_path : str
@@ -150,16 +125,12 @@ def install_base_reqs() -> None:
     If the variable is not defined, it falls back to `mlflow`.
     """
     log.info("Install additional package from requirements.txt")
-    cmd = (
-        "pip3 install"
-        f" -r {BASE_REQS_PATH}"
-    )
+    cmd = f"pip install -r {BASE_REQS_PATH}"
     os.system(cmd)
 
 
 def main(arguments: argparse.Namespace) -> None:
     """main algorithm.
-
     Parameters
     ----------
     arguments : argparse.Namespace
